@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/financesFragment">
+    <fragment
+        android:id="@+id/financesFragment"
+        android:name="com.example.financeapp.presentation.fragments.finances_fragment.FinancesFragment"
+        android:label="fragment_finances"
+        tools:layout="@layout/fragment_finances" >
+        <action
+            android:id="@+id/action_financesFragment_to_addEditAccountFragment"
+            app:destination="@id/addEditAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expensesFragment"
+        android:name="com.example.financeapp.presentation.fragments.expenses_fragment.ExpensesFragment"
+        android:label="ExpensesFragment" >
+        <action
+            android:id="@+id/action_expensesFragment_to_categoryOperationsFragment"
+            app:destination="@id/categoryOperationsFragment" />
+        <action
+            android:id="@+id/action_expensesFragment_to_addEditCategoryFragment"
+            app:destination="@id/addEditCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="com.example.financeapp.presentation.fragments.income_fragments.IncomeFragment"
+        android:label="IncomeFragment" >
+        <action
+            android:id="@+id/action_incomeFragment_to_categoryOperationsFragment"
+            app:destination="@id/categoryOperationsFragment" />
+        <action
+            android:id="@+id/action_incomeFragment_to_addEditCategoryFragment"
+            app:destination="@id/addEditCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditAccountFragment"
+        android:name="com.example.financeapp.presentation.fragments.add_edit_account_fragment.AddEditAccountFragment"
+        android:label="AddEditAccountFragment" >
+        <argument
+            android:name="account"
+            app:argType="com.example.financeapp.data.local.entities.Account"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditCategoryFragment"
+        android:name="com.example.financeapp.presentation.fragments.add_edit_category_fragment.AddEditCategoryFragment"
+        android:label="AddEditCategoryFragment" >
+        <argument
+            android:name="category"
+            app:argType="com.example.financeapp.data.local.entities.Category"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="money"
+            app:argType="com.example.financeapp.data.local.entities.Money"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditOperationFragment"
+        android:name="com.example.financeapp.presentation.fragments.add_edit_operation_fragment.AddEditOperationFragment"
+        android:label="AddEditOperationFragment" >
+        <argument
+            android:name="operation"
+            app:argType="com.example.financeapp.data.local.entities.Operation"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryOperationsFragment"
+        android:name="com.example.financeapp.presentation.fragments.category_operations_fragment.CategoryOperationsFragment"
+        android:label="CategoryOperationsFragment" >
+        <action
+            android:id="@+id/action_categoryOperationsFragment_to_addEditOperationFragment"
+            app:destination="@id/addEditOperationFragment" />
+        <argument
+            android:name="category"
+            app:argType="com.example.financeapp.data.local.entities.Category"
+            app:nullable="false"
+            android:defaultValue="@null" />
+        <argument
+            android:name="money"
+            app:argType="com.example.financeapp.data.local.entities.Money"
+            app:nullable="false"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

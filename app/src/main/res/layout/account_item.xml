@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/acc_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Тинькофф"
+        android:layout_gravity="center"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/acc_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar"
+        android:scaleType="centerCrop"
+        android:background="@drawable/gradient"
+        tools:src="@drawable/ic_credit_card_24"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"/>
+
+    <TextView
+        android:id="@+id/acc_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="42482 руб."
+        android:layout_gravity="center"/>
+</LinearLayout>

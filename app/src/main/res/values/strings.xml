@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FinanceApp</string>
+    <string name="finances">Финансы</string>
+    <string name="expenses">Расходы</string>
+    <string name="income">Доходы</string>
+    <string name="redact">Редактировать</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="money">%1$d &#x20bd;</string>
+</resources>
