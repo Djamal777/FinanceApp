@@ -50,15 +50,13 @@
         android:name="com.example.financeapp.presentation.fragments.add_edit_category_fragment.AddEditCategoryFragment"
         android:label="AddEditCategoryFragment" >
         <argument
-            android:name="category"
-            app:argType="com.example.financeapp.data.local.entities.Category"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            android:name="categoryId"
+            app:argType="integer"
+            android:defaultValue="-1" />
         <argument
-            android:name="money"
-            app:argType="com.example.financeapp.data.local.entities.Money"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            android:name="moneyId"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
     <fragment
         android:id="@+id/addEditOperationFragment"
@@ -69,6 +67,15 @@
             app:argType="com.example.financeapp.data.local.entities.Operation"
             app:nullable="true"
             android:defaultValue="@null" />
+        <argument
+            android:name="moneyId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
     </fragment>
     <fragment
         android:id="@+id/categoryOperationsFragment"
@@ -78,14 +85,12 @@
             android:id="@+id/action_categoryOperationsFragment_to_addEditOperationFragment"
             app:destination="@id/addEditOperationFragment" />
         <argument
-            android:name="category"
-            app:argType="com.example.financeapp.data.local.entities.Category"
-            app:nullable="false"
-            android:defaultValue="@null" />
+            android:name="categoryId"
+            app:argType="integer"
+            android:defaultValue="-1" />
         <argument
-            android:name="money"
-            app:argType="com.example.financeapp.data.local.entities.Money"
-            app:nullable="false"
-            android:defaultValue="@null" />
+            android:name="moneyId"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
 </navigation>

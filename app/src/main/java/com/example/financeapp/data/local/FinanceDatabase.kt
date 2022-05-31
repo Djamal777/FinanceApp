@@ -3,11 +3,10 @@ package com.example.financeapp.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.financeapp.R
 import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.data.local.entities.Category
-import com.example.financeapp.data.local.entities.InitialData.account
-import com.example.financeapp.data.local.entities.InitialData.categories
+import com.example.financeapp.data.local.InitialData.account
+import com.example.financeapp.data.local.InitialData.categories
 import com.example.financeapp.data.local.entities.Money
 import com.example.financeapp.data.local.entities.Operation
 import com.example.financeapp.di.ApplicationScope

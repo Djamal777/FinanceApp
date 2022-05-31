@@ -5,9 +5,7 @@ import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.data.local.entities.Category
 import com.example.financeapp.data.local.entities.Money
 import com.example.financeapp.data.local.entities.Operation
-import com.example.financeapp.data.local.entities.relations.AccountWithOperations
-import com.example.financeapp.data.local.entities.relations.CategoryWithMoney
-import com.example.financeapp.data.local.entities.relations.CategoryWithOperations
+import com.example.financeapp.domain.model.CategoryAndMoney
 import com.example.financeapp.domain.model.OperationAndCategoryAndAccount
 import kotlinx.coroutines.flow.Flow
 
@@ -15,11 +13,13 @@ interface FinanceRepository {
 
     fun getAccounts(): Flow<List<Account>>
 
-    fun getCategoriesByTypeAndIds(type: CategoryType, ids:List<Int>): Flow<List<CategoryWithMoney>>
+    fun getCategoriesByTypeAndMonthYear(
+        type: CategoryType,
+        month: Int,
+        year: Int
+    ): Flow<List<CategoryAndMoney>>
 
     fun getOperations(): Flow<List<OperationAndCategoryAndAccount>>
-
-    fun getMoneyByMonthAndYear(month:Int, year:Int): Flow<List<Money>>
 
     suspend fun deleteAccount(account: Account)
 
@@ -27,11 +27,11 @@ interface FinanceRepository {
 
     suspend fun updateAccount(account: Account)
 
-    suspend fun deleteCategory(category: Category)
+    suspend fun deleteCategoryById(categoryId: Int)
 
-    suspend fun insertCategory(category: Category):Long
+    suspend fun insertCategory(category: Category)
 
-    suspend fun updateCategory(category: Category)
+    suspend fun updateCategoryById(categoryId: Int, categoryName: String, icon: Int)
 
     suspend fun deleteOperation(operation: Operation)
 
@@ -39,21 +39,24 @@ interface FinanceRepository {
 
     suspend fun updateOperation(operation: Operation)
 
-    fun getOperationsByAccountId(accountId:Int): Flow<List<OperationAndCategoryAndAccount>>
+    fun getOperationsByAccountId(accountId: Int): Flow<List<OperationAndCategoryAndAccount>>
 
-    fun getOperationsByCategoryId(categoryId:Int): Flow<List<CategoryWithOperations>>
+    fun getOperationsByCategoryIdAndMoneyId(
+        categoryId: Int,
+        moneyId: Int
+    ): Flow<List<OperationAndCategoryAndAccount>>
 
     suspend fun insertMoney(money: Money)
 
-    suspend fun updateMoney(money: Money)
+    suspend fun updateMoneyPlan(moneyId: Int, plan: Double)
 
-    suspend fun deleteOperationsByAccountId(accountId:Int)
+    suspend fun updateMoneySum(moneyId: Int, money: Int)
 
-    suspend fun deleteOperationsByCategoryId(categoryId:Int)
+    suspend fun updateMoneySub(moneyId: Int, money: Int)
 
-    suspend fun deleteMoneyByCategoryId(categoryId:Int)
+    suspend fun deleteOperationsByAccountId(accountId: Int)
 
-    fun getAccountById(accId:Int): Flow<Account>
+    suspend fun deleteOperationsByCategoryId(categoryId: Int)
 
-    fun getMoneyByCategoryIdAndMonthAndYear(categoryId: Int, month: Int, year:Int): Flow<Money>
+    suspend fun deleteMoneyByCategoryId(categoryId: Int)
 }

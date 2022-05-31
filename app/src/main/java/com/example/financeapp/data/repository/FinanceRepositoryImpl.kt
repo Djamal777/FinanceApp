@@ -6,105 +6,103 @@ import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.data.local.entities.Category
 import com.example.financeapp.data.local.entities.Money
 import com.example.financeapp.data.local.entities.Operation
-import com.example.financeapp.data.local.entities.relations.AccountWithOperations
-import com.example.financeapp.data.local.entities.relations.CategoryWithMoney
-import com.example.financeapp.data.local.entities.relations.CategoryWithOperations
+import com.example.financeapp.domain.model.CategoryAndMoney
 import com.example.financeapp.domain.model.OperationAndCategoryAndAccount
 import com.example.financeapp.domain.repository.FinanceRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class FinanceRepositoryImpl @Inject constructor(
-    private val financeDao: FinanceDao
-):FinanceRepository {
+    private val dao: FinanceDao
+) : FinanceRepository {
     override fun getAccounts(): Flow<List<Account>> {
-        return financeDao.getAccounts()
+        return dao.getAccounts()
     }
 
-    override fun getCategoriesByTypeAndIds(
+    override fun getCategoriesByTypeAndMonthYear(
         type: CategoryType,
-        ids: List<Int>
-    ): Flow<List<CategoryWithMoney>> {
-        return financeDao.getCategoriesByTypeAndIds(type,ids)
+        month: Int,
+        year: Int
+    ): Flow<List<CategoryAndMoney>> {
+        return dao.getCategoriesByTypeAndMonthYear(type, month, year)
     }
 
     override fun getOperations(): Flow<List<OperationAndCategoryAndAccount>> {
-        return financeDao.getOperations()
-    }
-
-    override fun getMoneyByMonthAndYear(month: Int, year: Int): Flow<List<Money>> {
-        return financeDao.getMoneyByMonthAndYear(month,year)
+        return dao.getOperations()
     }
 
     override suspend fun deleteAccount(account: Account) {
-        financeDao.deleteAccount(account)
+        dao.deleteAccount(account)
     }
 
     override suspend fun insertAccount(account: Account) {
-        financeDao.insertAccount(account)
+        dao.insertAccount(account)
     }
 
     override suspend fun updateAccount(account: Account) {
-        financeDao.updateAccount(account)
+        dao.updateAccount(account)
     }
 
-    override suspend fun deleteCategory(category: Category) {
-        financeDao.deleteCategory(category)
+    override suspend fun deleteCategoryById(categoryId: Int) {
+        dao.deleteCategoryById(categoryId)
     }
 
-    override suspend fun insertCategory(category: Category): Long {
-        return financeDao.insertCategory(category)
+    override suspend fun insertCategory(category: Category) {
+        dao.insertCategory(category)
     }
 
-    override suspend fun updateCategory(category: Category) {
-        financeDao.updateCategory(category)
+    override suspend fun updateCategoryById(categoryId: Int, categoryName: String, icon: Int) {
+        dao.updateCategoryById(categoryId, categoryName, icon)
     }
 
     override suspend fun deleteOperation(operation: Operation) {
-        financeDao.deleteOperation(operation)
+        dao.deleteOperation(operation)
     }
 
     override suspend fun insertOperation(operation: Operation) {
-        financeDao.insertOperation(operation)
+        dao.insertOperation(operation)
     }
 
     override suspend fun updateOperation(operation: Operation) {
-        financeDao.updateOperation(operation)
+        dao.updateOperation(operation)
     }
 
     override fun getOperationsByAccountId(accountId: Int): Flow<List<OperationAndCategoryAndAccount>> {
-        return financeDao.getOperationsByAccountId(accountId)
+        return dao.getOperationsByAccountId(accountId)
     }
 
-    override fun getOperationsByCategoryId(categoryId: Int): Flow<List<CategoryWithOperations>> {
-        return financeDao.getOperationsByCategoryId(categoryId)
+    override fun getOperationsByCategoryIdAndMoneyId(
+        categoryId: Int,
+        moneyId: Int
+    ): Flow<List<OperationAndCategoryAndAccount>> {
+        return dao.getOperationsByCategoryIdAndMoneyId(categoryId, moneyId)
     }
 
     override suspend fun insertMoney(money: Money) {
-        return financeDao.insertMoney(money)
+        dao.insertMoney(money)
     }
 
-    override suspend fun updateMoney(money: Money) {
-        financeDao.updateMoney(money)
+    override suspend fun updateMoneyPlan(moneyId: Int, plan: Double) {
+        dao.updateMoneyPlan(moneyId, plan)
+    }
+
+    override suspend fun updateMoneySum(moneyId: Int, money: Int) {
+        dao.updateMoneySum(moneyId, money)
+    }
+
+    override suspend fun updateMoneySub(moneyId: Int, money: Int) {
+        dao.updateMoneySub(moneyId, money)
     }
 
     override suspend fun deleteOperationsByAccountId(accountId: Int) {
-        financeDao.deleteOperationsByAccountId(accountId)
+        dao.deleteOperationsByAccountId(accountId)
     }
 
     override suspend fun deleteOperationsByCategoryId(categoryId: Int) {
-        financeDao.deleteOperationsByCategoryId(categoryId)
+        dao.deleteOperationsByCategoryId(categoryId)
     }
 
-    override suspend fun deleteMoneyByCategoryId(categoryId:Int) {
-        financeDao.deleteMoneyByCategoryId(categoryId)
-    }
-
-    override fun getAccountById(accId: Int): Flow<Account> {
-        return financeDao.getAccountById(accId)
-    }
-
-    override fun getMoneyByCategoryIdAndMonthAndYear(categoryId: Int, month: Int, year: Int): Flow<Money> {
-        return financeDao.getMoneyByCategoryIdAndMonthAndYear(categoryId,month,year)
+    override suspend fun deleteMoneyByCategoryId(categoryId: Int) {
+        dao.deleteMoneyByCategoryId(categoryId)
     }
 }

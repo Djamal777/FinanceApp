@@ -45,7 +45,9 @@ class FinancesFragment: Fragment(), AccountsAdapter.OnAccountClickListener {
     }
 
     private fun observeOverallMoney() {
-
+        financesViewModel.overallMoney.observe(viewLifecycleOwner){
+            binding.toolbarLayout.title=it.toString()
+        }
     }
 
     private fun collectEvents() {

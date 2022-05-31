@@ -1,7 +1,8 @@
-package com.example.financeapp.data.local.entities
+package com.example.financeapp.data.local
 
 import com.example.financeapp.R
-import com.example.financeapp.data.local.CategoryType
+import com.example.financeapp.data.local.entities.Account
+import com.example.financeapp.data.local.entities.Category
 
 object InitialData {
     val account = Account(
