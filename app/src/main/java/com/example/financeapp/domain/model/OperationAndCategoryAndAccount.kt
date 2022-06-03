@@ -7,7 +7,7 @@ import java.util.*
 @Parcelize
 data class OperationAndCategoryAndAccount(
     val id:Int=0,
-    val date:Int= Calendar.getInstance().get(Calendar.DATE),
+    val date:String="",
     val money:Double=0.0,
     val accName:String="",
     val icon:Int=0,

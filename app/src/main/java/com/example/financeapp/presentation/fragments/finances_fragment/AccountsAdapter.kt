@@ -1,8 +1,10 @@
 package com.example.financeapp.presentation.fragments.finances_fragment
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -10,16 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.financeapp.R
 import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.databinding.AccountItemBinding
-import dagger.assisted.Assisted
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
 
 class AccountsAdapter(
     private val listener: OnAccountClickListener,
     private val c: Context
 ) : RecyclerView.Adapter<AccountsAdapter.AccountViewHolder>() {
 
-    var lastSelectedPosition = -1
     var selectedPosition = -1
 
     inner class AccountViewHolder(private val binding: AccountItemBinding) :
@@ -27,15 +25,18 @@ class AccountsAdapter(
 
         init {
             binding.root.apply {
-                val position = bindingAdapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    setOnClickListener {
+                setOnClickListener {
+                    val position = bindingAdapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
                         listener.onAccountItemClick(position)
                     }
-                    setOnLongClickListener {
+                }
+                setOnLongClickListener {
+                    val position = bindingAdapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
                         listener.onAccountItemLongClick(differ.currentList[position])
-                        true
                     }
+                    true
                 }
             }
         }
@@ -43,38 +44,39 @@ class AccountsAdapter(
         fun bind(item: Account) {
             binding.apply {
                 accName.text = item.accName
-                accMoney.text = c.resources.getString(R.string.money,item.money)
+                accMoney.text = c.resources.getString(R.string.money, item.money)
                 accImage.setImageDrawable(AppCompatResources.getDrawable(c, item.icon))
             }
         }
 
         //Создать другой backGround
         fun selected() {
-            binding.accImage.background = AppCompatResources.getDrawable(c, R.drawable.gradient)
+            binding.accImage.background = AppCompatResources.getDrawable(c, R.drawable.nav_background)
+            Log.d("ViewHolder", "item $bindingAdapterPosition selected: yes")
         }
 
         fun default() {
             binding.accImage.background = AppCompatResources.getDrawable(c, R.drawable.gradient)
+            Log.d("ViewHolder", "item $bindingAdapterPosition selected: no")
         }
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AccountsAdapter.AccountViewHolder {
+    ): AccountViewHolder {
         return AccountViewHolder(
             AccountItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: AccountsAdapter.AccountViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
         val item = differ.currentList[position]
-        if (position == selectedPosition) {
-            if (selectedPosition == lastSelectedPosition) {
-                holder.default()
-            } else {
-                holder.selected()
-            }
+        if(item.selected){
+            holder.selected()
+        }
+        else{
+            holder.default()
         }
         holder.bind(item)
     }

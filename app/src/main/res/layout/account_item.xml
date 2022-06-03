@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="8dp">
 
     <TextView
         android:id="@+id/acc_name"
@@ -15,8 +16,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/acc_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
         android:scaleType="centerCrop"
@@ -28,6 +29,6 @@
         android:id="@+id/acc_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="42482 руб."
+        tools:text="42482 руб."
         android:layout_gravity="center"/>
 </LinearLayout>

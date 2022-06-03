@@ -36,7 +36,7 @@ class OperationsAdapter(
     }
 
     override fun onBindViewHolder(holder: OperationViewHolder, position: Int) {
-        val item=differ.currentList[position]
+        val item=differ.currentList[holder.bindingAdapterPosition]
         holder.bind(item)
     }
 

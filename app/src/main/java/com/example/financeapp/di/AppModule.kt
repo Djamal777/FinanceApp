@@ -24,11 +24,11 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(
-        @ApplicationContext context: Context,
+        app:Application,
         callback:FinanceDatabase.Callback
-    ) = Room.databaseBuilder(context,FinanceDatabase::class.java,"finance_database")
-        .fallbackToDestructiveMigration()
+    ) = Room.databaseBuilder(app,FinanceDatabase::class.java,"finance_database")
         .addCallback(callback)
+        .fallbackToDestructiveMigration()
         .build()
 
     @Provides

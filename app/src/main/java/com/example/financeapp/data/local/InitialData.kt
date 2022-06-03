@@ -5,9 +5,27 @@ import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.data.local.entities.Category
 
 object InitialData {
-    val account = Account(
-        accName = "Наличные",
-        icon = R.drawable.ic_baseline_wallet_24,
+    val accounts = listOf(
+        Account(
+            accName = "Наличные",
+            money=50.0,
+            icon = R.drawable.ic_baseline_wallet_24
+        ),
+        Account(
+            accName = "Тинькофф",
+            money=21.0,
+            icon = R.drawable.ic_baseline_attach_money_24
+        ),
+        Account(
+            accName = "Наличные",
+            money=50.0,
+            icon = R.drawable.ic_baseline_wallet_24
+        ),
+        Account(
+            accName = "Тинькофф",
+            money=21.0,
+            icon = R.drawable.ic_baseline_attach_money_24
+        )
     )
 
     val categories = listOf(

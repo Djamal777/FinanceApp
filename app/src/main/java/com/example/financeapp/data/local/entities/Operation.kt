@@ -11,8 +11,9 @@ import java.util.*
 data class Operation(
     @PrimaryKey(true)
     val id:Int=0,
-    val date:Int= Calendar.getInstance().get(Calendar.DATE),
+    val date:String="",
     val money:Double=0.0,
     val categoryId:Int=0,
+    val moneyId:Int=0,
     val accountId:Int=0
 ):Parcelable

@@ -38,7 +38,16 @@
         <entry key="..\:/AndroidStudioProjects/FinanceApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/FinanceApp/app/src/main/res/menu/confirm_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/FinanceApp/app/src/main/res/menu/redact_menu.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.20925925925925926" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/nav_background.xml" value="0.20925925925925926" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/account_item.xml" value="0.12537993920972645" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_add_or_edit_category.xml" value="0.12360688956433637" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_finances.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_income_or_expenses.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/operation_item.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/menu/accounts_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/menu/confirm_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

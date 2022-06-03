@@ -5,5 +5,6 @@
     <string name="income">Доходы</string>
     <string name="redact">Редактировать</string>
     <string name="confirm">Подтвердить</string>
-    <string name="money">%1$d &#x20bd;</string>
+    <string name="money">%1$.2f &#x20bd;</string>
+    <string name="add_account">Добавить счёт</string>
 </resources>

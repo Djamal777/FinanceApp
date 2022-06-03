@@ -27,6 +27,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        app:layout_constraintEnd_toStartOf="@+id/money"
         app:layout_constraintStart_toEndOf="@+id/acc_image"
         app:layout_constraintTop_toTopOf="@+id/acc_image"
         tools:text="Тинькофф" />
@@ -48,12 +49,11 @@
         android:id="@+id/money"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:maxLines="1"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/acc_name"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="-614.3 руб."
-        android:gravity="end"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="-614.3 руб." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

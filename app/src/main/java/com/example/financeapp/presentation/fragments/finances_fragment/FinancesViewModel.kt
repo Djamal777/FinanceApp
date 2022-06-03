@@ -1,12 +1,16 @@
 package com.example.financeapp.presentation.fragments.finances_fragment
 
+import android.util.Log
 import androidx.lifecycle.*
+import com.example.financeapp.R
 import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.domain.model.OperationAndCategoryAndAccount
 import com.example.financeapp.domain.repository.FinanceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,40 +19,31 @@ class FinancesViewModel @Inject constructor(
     private val repository: FinanceRepository
 ): ViewModel() {
 
-    private val _accounts:MutableLiveData<List<Account>> = MutableLiveData()
-    val accounts:LiveData<List<Account>> =_accounts
+    private val _accounts=repository.getAccounts()
+    val accounts=_accounts.asLiveData()
 
-    private val _operations:MutableLiveData<List<OperationAndCategoryAndAccount>> =MutableLiveData()
-    val operations:LiveData<List<OperationAndCategoryAndAccount>> =_operations
+    private val accountId=MutableLiveData(-1)
 
-    private val _overallMoney:MutableLiveData<Double> =MutableLiveData()
-    val overallMoney:LiveData<Double> =_overallMoney
-
-    init{
-        getAllAccounts()
-        getAllOperations()
-        getOverallMoney()
+    private val _operations=accountId.asFlow().flatMapLatest {
+        if(it==-1){
+            repository.getOperations()
+        }else{
+            repository.getOperationsByAccountId(it)
+        }
     }
+    val operations=_operations.asLiveData()
 
-    fun getOverallMoney()=viewModelScope.launch {
-        _overallMoney.postValue(
-            _accounts.value?.map { it.money }?.sum()
-        )
-    }
+    val overallMoney=_accounts.map { accounts->
+        accounts.map{ account->
+            account.money
+        }.sum()
+    }.asLiveData()
 
     private val eventChannel= Channel<Event>()
     val event = eventChannel.receiveAsFlow()
 
-    fun getAllAccounts()=viewModelScope.launch{
-        _accounts.postValue(repository.getAccounts().asLiveData().value)
-    }
-
-    fun getAllOperations()=viewModelScope.launch {
-        _operations.postValue(repository.getOperations().asLiveData().value)
-    }
-
-    fun getOperationsByAccId(accId:Int)=viewModelScope.launch {
-        _operations.postValue(repository.getOperationsByAccountId(accId).asLiveData().value)
+    fun setAccountId(accId:Int){
+        accountId.value=accId
     }
 
     fun onAccountLongClick(account: Account)=viewModelScope.launch {

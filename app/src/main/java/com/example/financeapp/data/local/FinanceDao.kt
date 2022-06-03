@@ -1,5 +1,6 @@
 package com.example.financeapp.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.data.local.entities.Category
@@ -23,8 +24,9 @@ interface FinanceDao {
             " money.plan" +
             " FROM categories" +
             " LEFT JOIN money" +
-            " ON money.categoryId=categories.categoryId," +
-            " money.month=:month, money.year=:year")
+            " ON money.categoryId=categories.categoryId AND" +
+            " money.month=:month AND money.year=:year" +
+            " WHERE categories.type=:type")
     fun getCategoriesByTypeAndMonthYear(type:CategoryType, month:Int, year:Int):Flow<List<CategoryAndMoney>>
 
     @Query("SELECT operations.id," +
@@ -54,9 +56,9 @@ interface FinanceDao {
     suspend fun deleteCategoryById(categoryId: Int)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCategory(category: Category)
+    suspend fun insertCategory(category: Category):Long
 
-    @Query("UPDATE categories SET categoryName=:categoryName" +
+    @Query("UPDATE categories SET categoryName=:categoryName, " +
             "icon=:icon WHERE categoryId=:categoryId")
     suspend fun updateCategoryById(categoryId:Int, categoryName:String, icon:Int)
 
@@ -95,7 +97,7 @@ interface FinanceDao {
             "ON categories.categoryId=operations.categoryId " +
             "LEFT JOIN accounts " +
             "ON accounts.accId=operations.accountId " +
-            "WHERE operations.categoryId=:categoryId, " +
+            "WHERE operations.categoryId=:categoryId AND " +
             "operations.moneyId=:moneyId " +
             "ORDER BY operations.date DESC")
     fun getOperationsByCategoryIdAndMoneyId(categoryId:Int, moneyId:Int):Flow<List<OperationAndCategoryAndAccount>>
@@ -107,11 +109,11 @@ interface FinanceDao {
     suspend fun updateMoneyPlan(moneyId:Int, plan: Double)
 
     @Query("UPDATE money SET moneyAmount=moneyAmount + :money " +
-            "WHERE moneyId=:moneyId, ")
+            "WHERE moneyId=:moneyId")
     suspend fun updateMoneySum(moneyId: Int, money:Int)
 
     @Query("UPDATE money SET moneyAmount=moneyAmount - :money " +
-            "WHERE moneyId=:moneyId, ")
+            "WHERE moneyId=:moneyId")
     suspend fun updateMoneySub(moneyId: Int, money:Int)
 
     @Query("DELETE FROM operations WHERE accountId= :accountId")
