@@ -27,11 +27,12 @@ object AppModule {
         app:Application,
         callback:FinanceDatabase.Callback
     ) = Room.databaseBuilder(app,FinanceDatabase::class.java,"finance_database")
-        .addCallback(callback)
         .fallbackToDestructiveMigration()
+        .addCallback(callback)
         .build()
 
     @Provides
+    @Singleton
     fun provideDao(db:FinanceDatabase)=db.financeDao()
 
     @Singleton

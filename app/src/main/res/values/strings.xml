@@ -5,6 +5,23 @@
     <string name="income">Доходы</string>
     <string name="redact">Редактировать</string>
     <string name="confirm">Подтвердить</string>
-    <string name="money">%1$.2f &#x20bd;</string>
+    <string name="money">%1$s %2$.2f &#x20bd;</string>
+    <string name="money_plan">По плану: %1$.2f &#x20bd;</string>
+    <string name="add_category">Добавить категорию</string>
     <string name="add_account">Добавить счёт</string>
+    <string name="edit_account">Редактировать счёт</string>
+    <string name="add_operation">Добавить операцию</string>
+    <string name="edit_operation">Редактировать операцию</string>
+    <string name="delete">Удалить</string>
+    <string name="edit_category">Редактировать категорию</string>
+    <string name="question">Учесть в текущем балансе счёта?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="acc_name">Название счёта</string>
+    <string name="balance">Баланс</string>
+    <string name="category_name">Название категории</string>
+    <string name="money_amount">Сумма</string>
+    <string name="date">Дата</string>
+    <string name="transactions_here">Здесь будут ваши транзакции</string>
+    <string name="no_categories">Нет активных категорий!</string>
 </resources>

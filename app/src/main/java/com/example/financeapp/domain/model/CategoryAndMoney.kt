@@ -1,14 +1,16 @@
 package com.example.financeapp.domain.model
 
 import android.os.Parcelable
+import com.example.financeapp.data.local.CategoryType
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CategoryAndMoney(
-    val categoryId:Int=0,
-    val categoryName:String="",
-    val icon:Int=0,
-    val moneyId:Int=0,
-    val moneyAmount:Double=0.0,
-    val plan:Double?=null
+    var categoryId:Int=0,
+    var categoryName:String="",
+    var icon:String="",
+    var moneyId:Int=0,
+    var moneyAmount:Double=0.0,
+    var plan:Double?=null,
+    var type: CategoryType
 ):Parcelable

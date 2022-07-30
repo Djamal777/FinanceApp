@@ -21,9 +21,10 @@ interface FinanceDao {
             " categories.icon," +
             " money.moneyId," +
             " money.moneyAmount," +
-            " money.plan" +
+            " money.plan," +
+            " categories.type" +
             " FROM categories" +
-            " LEFT JOIN money" +
+            " INNER JOIN money" +
             " ON money.categoryId=categories.categoryId AND" +
             " money.month=:month AND money.year=:year" +
             " WHERE categories.type=:type")
@@ -32,9 +33,11 @@ interface FinanceDao {
     @Query("SELECT operations.id," +
             " operations.date," +
             " operations.money," +
+            " categories.type AS categoryType," +
             " accounts.accName," +
             " accounts.icon," +
-            " categories.categoryName" +
+            " categories.categoryName," +
+            " accounts.accId AS accountId" +
             " FROM operations" +
             " LEFT JOIN categories" +
             " ON categories.categoryId=operations.categoryId" +
@@ -52,6 +55,12 @@ interface FinanceDao {
     @Update
     suspend fun updateAccount(account: Account)
 
+    @Query("UPDATE accounts SET money=money-:money WHERE accId=:accId")
+    suspend fun updateAccountSub(money:Double, accId:Int)
+
+    @Query("UPDATE accounts SET money=money+:money WHERE accId=:accId")
+    suspend fun updateAccountSum(money:Double, accId:Int)
+
     @Query("DELETE FROM categories WHERE categoryId=:categoryId")
     suspend fun deleteCategoryById(categoryId: Int)
 
@@ -60,23 +69,25 @@ interface FinanceDao {
 
     @Query("UPDATE categories SET categoryName=:categoryName, " +
             "icon=:icon WHERE categoryId=:categoryId")
-    suspend fun updateCategoryById(categoryId:Int, categoryName:String, icon:Int)
+    suspend fun updateCategoryById(categoryId:Int, categoryName:String, icon:String)
 
-    @Delete
-    suspend fun deleteOperation(operation: Operation)
+    @Query("DELETE FROM operations WHERE id=:operationId")
+    suspend fun deleteOperation(operationId: Int)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOperation(operation: Operation)
 
     @Update
-    suspend fun updateOperation(operation: Operation)
+    suspend fun updateOperation(operation:Operation)
 
     @Query("SELECT operations.id, " +
             "operations.date, " +
             "operations.money, " +
+            "categories.type AS categoryType, " +
             "accounts.accName, " +
             "accounts.icon, " +
-            "categories.categoryName " +
+            "categories.categoryName," +
+            "accounts.accId AS accountId " +
             "FROM operations " +
             "LEFT JOIN categories " +
             "ON categories.categoryId=operations.categoryId " +
@@ -89,9 +100,11 @@ interface FinanceDao {
     @Query("SELECT operations.id, " +
             "operations.date, " +
             "operations.money, " +
+            "categories.type AS categoryType, " +
             "accounts.accName, " +
             "accounts.icon, " +
-            "categories.categoryName " +
+            "categories.categoryName, " +
+            "operations.accountId " +
             "FROM operations " +
             "LEFT JOIN categories " +
             "ON categories.categoryId=operations.categoryId " +
@@ -106,15 +119,15 @@ interface FinanceDao {
     suspend fun insertMoney(money: Money)
 
     @Query("UPDATE money SET plan=:plan WHERE moneyId=:moneyId")
-    suspend fun updateMoneyPlan(moneyId:Int, plan: Double)
+    suspend fun updateMoneyPlan(moneyId:Int, plan: Double?)
 
     @Query("UPDATE money SET moneyAmount=moneyAmount + :money " +
             "WHERE moneyId=:moneyId")
-    suspend fun updateMoneySum(moneyId: Int, money:Int)
+    suspend fun updateMoneySum(moneyId: Int, money:Double)
 
     @Query("UPDATE money SET moneyAmount=moneyAmount - :money " +
             "WHERE moneyId=:moneyId")
-    suspend fun updateMoneySub(moneyId: Int, money:Int)
+    suspend fun updateMoneySub(moneyId: Int, money:Double)
 
     @Query("DELETE FROM operations WHERE accountId= :accountId")
     suspend fun deleteOperationsByAccountId(accountId:Int)

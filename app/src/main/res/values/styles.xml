@@ -8,4 +8,12 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <style name="collapsingToolbarTextStyle" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="MonthPickerDialogStyle" >
+        <item name="headerBgColor">?attr/colorPrimary</item>
+        <item name="monthBgSelectedColor">?attr/colorPrimary</item>
+    </style>
 </resources>

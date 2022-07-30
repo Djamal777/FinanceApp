@@ -10,8 +10,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Category(
     @PrimaryKey(autoGenerate = true)
-    val categoryId:Int=0,
-    val categoryName:String="",
-    val type:CategoryType,
-    val icon:Int=0
+    var categoryId:Int=0,
+    var categoryName:String="",
+    var type:CategoryType,
+    var icon:String=""
 ):Parcelable

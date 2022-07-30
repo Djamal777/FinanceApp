@@ -38,15 +38,94 @@
         <entry key="..\:/AndroidStudioProjects/FinanceApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/FinanceApp/app/src/main/res/menu/confirm_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/FinanceApp/app/src/main/res/menu/redact_menu.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable-v24/gradient.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable-v24/gradient_clicked.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_account_balance_wallet_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.165625" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_airplanemode_active_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.165625" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_arrow_upward_24.xml" value="0.2703125" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.20925925925925926" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_baby_changing_station_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_book_24.xml" value="0.165625" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_business_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_cake_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_car_rental_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_carpenter_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_checkroom_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_child_care_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_construction_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_credit_card_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_cruelty_free_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_currency_bitcoin_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_currency_exchange_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_currency_ruble_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_dinner_dining_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_directions_car_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_directions_railway_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_discount_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_electric_bolt_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_euro_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_factory_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_fastfood_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_gavel_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_handshake_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_home_work_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_hotel_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_keyboard_double_arrow_up_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_landscape_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_language_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_local_gas_station_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_local_hospital_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_local_mall_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_local_pizza_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_monetization_on_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_money_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_movie_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_moving_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_music_note_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_phone_android_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_priority_high_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_savings_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_self_improvement_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_sell_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_sick_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_sports_esports_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_sports_soccer_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_stacked_line_chart_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_theater_comedy_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_wallet_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_baseline_work_24.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/ic_monetization_on_24.xml" value="0.2703125" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/nav_background.xml" value="0.20925925925925926" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/drawable/toolbar_background.xml" value="0.2703125" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/account_item.xml" value="0.12537993920972645" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_add_or_edit_category.xml" value="0.12360688956433637" />
-        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_finances.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/expense_category_item.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_add_or_edit_acc.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_add_or_edit_category.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_add_or_edit_operation.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_category_operations.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_finances.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/fragment_income_or_expenses.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/operation_item.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/icon_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/income_category_item.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/operation_item.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/operations_footer.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/layout/operations_header.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/menu-v26/category_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/menu/accounts_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/menu/category_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/FinancesApp-master/app/src/main/res/menu/confirm_menu.xml" value="0.25416666666666665" />
       </map>
     </option>

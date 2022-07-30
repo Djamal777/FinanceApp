@@ -11,7 +11,7 @@ import java.util.*
 data class Operation(
     @PrimaryKey(true)
     val id:Int=0,
-    val date:String="",
+    val date:Long,
     val money:Double=0.0,
     val categoryId:Int=0,
     val moneyId:Int=0,

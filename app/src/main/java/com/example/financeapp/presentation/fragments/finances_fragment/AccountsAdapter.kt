@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -17,8 +16,6 @@ class AccountsAdapter(
     private val listener: OnAccountClickListener,
     private val c: Context
 ) : RecyclerView.Adapter<AccountsAdapter.AccountViewHolder>() {
-
-    var selectedPosition = -1
 
     inner class AccountViewHolder(private val binding: AccountItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -44,14 +41,20 @@ class AccountsAdapter(
         fun bind(item: Account) {
             binding.apply {
                 accName.text = item.accName
-                accMoney.text = c.resources.getString(R.string.money, item.money)
-                accImage.setImageDrawable(AppCompatResources.getDrawable(c, item.icon))
+                accMoney.text = c.resources.getString(R.string.money,"", item.money)
+                accImage.setImageDrawable(
+                    AppCompatResources.getDrawable(
+                        c,
+                        c.resources.getIdentifier(item.icon, "drawable", c.packageName)
+                    )
+                )
             }
         }
 
         //Создать другой backGround
         fun selected() {
-            binding.accImage.background = AppCompatResources.getDrawable(c, R.drawable.nav_background)
+            binding.accImage.background =
+                AppCompatResources.getDrawable(c, R.drawable.gradient_clicked)
             Log.d("ViewHolder", "item $bindingAdapterPosition selected: yes")
         }
 
@@ -72,10 +75,9 @@ class AccountsAdapter(
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
         val item = differ.currentList[position]
-        if(item.selected){
+        if (item.selected) {
             holder.selected()
-        }
-        else{
+        } else {
             holder.default()
         }
         holder.bind(item)

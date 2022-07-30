@@ -3,9 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/confirm"
-        android:icon="@drawable/ic_baseline_check_24"
-        android:title="@string/confirm"
+        android:id="@+id/delete"
+        android:icon="@drawable/ic_delete_24"
+        android:title="@string/delete"
         app:showAsAction="always"/>
 
+    <item
+        android:id="@+id/confirm"
+        android:icon="@drawable/ic_check_24"
+        android:title="@string/confirm"
+        app:showAsAction="always"/>
 </menu>

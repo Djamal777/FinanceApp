@@ -12,8 +12,11 @@ data class Account(
     @PrimaryKey(autoGenerate = true)
     var accId:Int=0,
     var accName:String="",
-    var icon:Int=0,
+    var icon:String="",
     var money:Double=0.0,
-    @Ignore
     var selected:Boolean=false
-):Parcelable
+):Parcelable{
+    override fun toString(): String {
+        return accName
+    }
+}

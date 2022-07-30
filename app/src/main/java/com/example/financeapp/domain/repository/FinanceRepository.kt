@@ -1,6 +1,5 @@
 package com.example.financeapp.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.example.financeapp.data.local.CategoryType
 import com.example.financeapp.data.local.entities.Account
 import com.example.financeapp.data.local.entities.Category
@@ -28,13 +27,17 @@ interface FinanceRepository {
 
     suspend fun updateAccount(account: Account)
 
+    suspend fun updateAccountSub(money: Double, accId: Int)
+
+    suspend fun updateAccountSum(money: Double, accId: Int)
+
     suspend fun deleteCategoryById(categoryId: Int)
 
-    suspend fun insertCategory(category: Category)
+    suspend fun insertCategory(category: Category): Long
 
-    suspend fun updateCategoryById(categoryId: Int, categoryName: String, icon: Int)
+    suspend fun updateCategoryById(categoryId: Int, categoryName: String, icon: String)
 
-    suspend fun deleteOperation(operation: Operation)
+    suspend fun deleteOperation(operationId: Int)
 
     suspend fun insertOperation(operation: Operation)
 
@@ -49,11 +52,11 @@ interface FinanceRepository {
 
     suspend fun insertMoney(money: Money)
 
-    suspend fun updateMoneyPlan(moneyId: Int, plan: Double)
+    suspend fun updateMoneyPlan(moneyId: Int, plan: Double?)
 
-    suspend fun updateMoneySum(moneyId: Int, money: Int)
+    suspend fun updateMoneySum(moneyId: Int, money: Double)
 
-    suspend fun updateMoneySub(moneyId: Int, money: Int)
+    suspend fun updateMoneySub(moneyId: Int, money: Double)
 
     suspend fun deleteOperationsByAccountId(accountId: Int)
 

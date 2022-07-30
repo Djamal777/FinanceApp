@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/gradient"
-        tools:src="@drawable/ic_credit_card_24"
+        tools:src="@drawable/ic_baseline_credit_card_24"
         app:shapeAppearanceOverlay="@style/roundedImageViewRounded"/>
 
     <TextView
@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="14sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/acc_name"
         app:layout_constraintTop_toBottomOf="@+id/acc_name"
@@ -50,6 +51,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="end"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
         android:maxLines="1"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"

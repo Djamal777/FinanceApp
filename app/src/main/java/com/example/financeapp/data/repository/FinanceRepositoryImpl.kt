@@ -44,20 +44,28 @@ class FinanceRepositoryImpl @Inject constructor(
         dao.updateAccount(account)
     }
 
+    override suspend fun updateAccountSub(money: Double, accId: Int) {
+        dao.updateAccountSub(money, accId)
+    }
+
+    override suspend fun updateAccountSum(money: Double, accId: Int) {
+        dao.updateAccountSum(money, accId)
+    }
+
     override suspend fun deleteCategoryById(categoryId: Int) {
         dao.deleteCategoryById(categoryId)
     }
 
-    override suspend fun insertCategory(category: Category) {
-        dao.insertCategory(category)
+    override suspend fun insertCategory(category: Category):Long {
+        return dao.insertCategory(category)
     }
 
-    override suspend fun updateCategoryById(categoryId: Int, categoryName: String, icon: Int) {
+    override suspend fun updateCategoryById(categoryId: Int, categoryName: String, icon: String) {
         dao.updateCategoryById(categoryId, categoryName, icon)
     }
 
-    override suspend fun deleteOperation(operation: Operation) {
-        dao.deleteOperation(operation)
+    override suspend fun deleteOperation(operationId: Int) {
+        dao.deleteOperation(operationId)
     }
 
     override suspend fun insertOperation(operation: Operation) {
@@ -83,15 +91,15 @@ class FinanceRepositoryImpl @Inject constructor(
         dao.insertMoney(money)
     }
 
-    override suspend fun updateMoneyPlan(moneyId: Int, plan: Double) {
+    override suspend fun updateMoneyPlan(moneyId: Int, plan: Double?) {
         dao.updateMoneyPlan(moneyId, plan)
     }
 
-    override suspend fun updateMoneySum(moneyId: Int, money: Int) {
+    override suspend fun updateMoneySum(moneyId: Int, money: Double) {
         dao.updateMoneySum(moneyId, money)
     }
 
-    override suspend fun updateMoneySub(moneyId: Int, money: Int) {
+    override suspend fun updateMoneySub(moneyId: Int, money: Double) {
         dao.updateMoneySub(moneyId, money)
     }
 

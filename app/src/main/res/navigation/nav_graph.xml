@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/expensesFragment"
-        android:name="com.example.financeapp.presentation.fragments.expenses_fragment.ExpensesFragment"
+        android:name="com.example.financeapp.presentation.fragments.expenses_and_income_fragments.expenses_fragment.ExpensesFragment"
         android:label="ExpensesFragment" >
         <action
             android:id="@+id/action_expensesFragment_to_categoryOperationsFragment"
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/incomeFragment"
-        android:name="com.example.financeapp.presentation.fragments.income_fragments.IncomeFragment"
+        android:name="com.example.financeapp.presentation.fragments.expenses_and_income_fragments.income_fragment.IncomeFragment"
         android:label="IncomeFragment" >
         <action
             android:id="@+id/action_incomeFragment_to_categoryOperationsFragment"
@@ -44,17 +44,29 @@
             app:argType="com.example.financeapp.data.local.entities.Account"
             app:nullable="true"
             android:defaultValue="@null" />
+        <argument
+            android:name="canBeDeleted"
+            app:argType="boolean"
+            android:defaultValue="true" />
     </fragment>
     <fragment
         android:id="@+id/addEditCategoryFragment"
         android:name="com.example.financeapp.presentation.fragments.add_edit_category_fragment.AddEditCategoryFragment"
         android:label="AddEditCategoryFragment" >
         <argument
-            android:name="categoryId"
+            android:name="categoryAndMoney"
+            app:argType="com.example.financeapp.domain.model.CategoryAndMoney"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="type"
+            app:argType="com.example.financeapp.data.local.CategoryType" />
+        <argument
+            android:name="month"
             app:argType="integer"
             android:defaultValue="-1" />
         <argument
-            android:name="moneyId"
+            android:name="year"
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
@@ -64,17 +76,18 @@
         android:label="AddEditOperationFragment" >
         <argument
             android:name="operation"
-            app:argType="com.example.financeapp.data.local.entities.Operation"
+            app:argType="com.example.financeapp.domain.model.OperationAndCategoryAndAccount"
             app:nullable="true"
             android:defaultValue="@null" />
         <argument
-            android:name="moneyId"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:name="categoryAndMoney"
+            app:argType="com.example.financeapp.domain.model.CategoryAndMoney" />
         <argument
-            android:name="categoryId"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:name="month"
+            app:argType="integer" />
+        <argument
+            android:name="year"
+            app:argType="integer" />
 
     </fragment>
     <fragment
@@ -85,12 +98,19 @@
             android:id="@+id/action_categoryOperationsFragment_to_addEditOperationFragment"
             app:destination="@id/addEditOperationFragment" />
         <argument
-            android:name="categoryId"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:name="categoryAndMoney"
+            app:argType="com.example.financeapp.domain.model.CategoryAndMoney"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <argument
-            android:name="moneyId"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:name="month"
+            app:argType="integer" />
+        <argument
+            android:name="year"
+            app:argType="integer" />
     </fragment>
+    <dialog
+        android:id="@+id/iconsDialogFragment"
+        android:name="com.example.financeapp.presentation.fragments.icons_dialog_fragment.IconsDialogFragment"
+        android:label="IconsDialogFragment" /><action android:id="@+id/action_global_iconsDialogFragment" app:destination="@id/iconsDialogFragment"/>
 </navigation>
