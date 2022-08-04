@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.example.financeapp.data.local.CategoryType
 import kotlinx.parcelize.Parcelize
 
-@Entity("categories")
+@Entity(tableName = "categories")
 @Parcelize
 data class Category(
     @PrimaryKey(autoGenerate = true)

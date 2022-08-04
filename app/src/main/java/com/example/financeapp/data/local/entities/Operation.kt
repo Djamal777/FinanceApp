@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 import java.util.*
 
-@Entity("operations")
+@Entity(tableName = "operations")
 @Parcelize
 data class Operation(
-    @PrimaryKey(true)
+    @PrimaryKey(autoGenerate = true)
     val id:Int=0,
     val date:Long,
     val money:Double=0.0,

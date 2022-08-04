@@ -16,6 +16,9 @@ interface FinanceDao {
     @Query("SELECT * from accounts")
     fun getAccounts(): Flow<List<Account>>
 
+    @Query("SELECT * from categories")
+    fun getCategories():Flow<List<Category>>
+
     @Query("SELECT categories.categoryId," +
             " categories.categoryName," +
             " categories.icon," +
@@ -114,6 +117,9 @@ interface FinanceDao {
             "operations.moneyId=:moneyId " +
             "ORDER BY operations.date DESC")
     fun getOperationsByCategoryIdAndMoneyId(categoryId:Int, moneyId:Int):Flow<List<OperationAndCategoryAndAccount>>
+
+    @Query("SELECT * from money")
+    fun getMoney():Flow<List<Money>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMoney(money: Money)
