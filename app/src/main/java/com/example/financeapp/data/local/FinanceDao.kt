@@ -49,6 +49,9 @@ interface FinanceDao {
             " ORDER BY operations.date DESC")
     fun getOperations():Flow<List<OperationAndCategoryAndAccount>>
 
+    @Query("SELECT * FROM operations")
+    fun getOperationsTest():Flow<List<Operation>>
+
     @Delete
     suspend fun deleteAccount(account: Account)
 
@@ -143,5 +146,4 @@ interface FinanceDao {
 
     @Query("DELETE FROM money WHERE categoryId= :categoryId")
     suspend fun deleteMoneyByCategoryId(categoryId:Int)
-
 }

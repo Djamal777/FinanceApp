@@ -12,7 +12,7 @@ data class Operation(
     @PrimaryKey(autoGenerate = true)
     val id:Int=0,
     val date:Long,
-    val money:Double=0.0,
+    var money:Double=0.0,
     val categoryId:Int=0,
     val moneyId:Int=0,
     val accountId:Int=0
