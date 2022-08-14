@@ -60,7 +60,7 @@ class AddEditCategoryViewModel @Inject constructor(
         repository.deleteMoneyByCategoryId(categoryId)
     }
 
-    fun insertMoney(money: Money) = GlobalScope.launch {
+    private fun insertMoney(money: Money) = GlobalScope.launch {
         repository.insertMoney(money)
     }
 

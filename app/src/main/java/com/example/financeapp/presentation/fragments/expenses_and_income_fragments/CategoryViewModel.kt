@@ -62,11 +62,6 @@ class CategoryViewModel @AssistedInject constructor(
         eventChannel.send(Event.ShowDatePicker)
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        Log.d("CategoryViewModel", "onCleared")
-    }
-
     sealed class Event {
         data class NavigateToEditCategoryScreen(
             val categoryAndMoney: CategoryAndMoney,
