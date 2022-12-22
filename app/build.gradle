@@ -47,12 +47,15 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+
     //Splash screen
     implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
+
 
     //Room
     implementation "androidx.room:room-runtime:2.4.2"
@@ -60,19 +63,24 @@ dependencies {
     implementation "androidx.room:room-ktx:2.4.2"
     implementation "androidx.room:room-paging:2.5.0-alpha01"
 
+
     //ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01"
 
+
     //Fragment
     implementation "androidx.fragment:fragment-ktx:1.4.1"
+
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
+
     //Paging
     implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+
 
     //Dagger Hilt
     implementation "com.google.dagger:hilt-android:2.38.1"
@@ -80,12 +88,14 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 
+
     //DatePicker
     implementation 'com.whiteelephant:monthandyearpicker:1.3.0'
 
+
     //RecyclerView with headers
     implementation 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
-
+    
     implementation "androidx.test:core:1.4.0"
     testImplementation "com.google.truth:truth:1.1.3"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
@@ -95,5 +105,4 @@ dependencies {
     androidTestImplementation "com.google.truth:truth:1.1.3"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
-
 }

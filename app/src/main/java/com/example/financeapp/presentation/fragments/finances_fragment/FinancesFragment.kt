@@ -5,10 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.VisibleForTesting
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,12 +25,13 @@ import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
+class FinancesFragment(
+    var financesViewModel: FinancesViewModel?=null
+) : Fragment(), AccountsAdapter.OnAccountClickListener {
 
     private lateinit var binding: FragmentFinancesBinding
-    private lateinit var accountsAdapter: AccountsAdapter
-    private lateinit var operationsAdapter: OperationsAdapter
-    private val financesViewModel: FinancesViewModel by viewModels()
+    lateinit var accountsAdapter: AccountsAdapter
+    lateinit var operationsAdapter: OperationsAdapter
     private lateinit var layoutManager: LinearLayoutManager
 
     override fun onCreateView(
@@ -42,12 +45,13 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        financesViewModel = financesViewModel?: ViewModelProvider(requireActivity()).get(FinancesViewModel::class.java)
         accountsAdapter = AccountsAdapter(this, requireContext())
         operationsAdapter = OperationsAdapter(requireContext(), null)
         binding.fabAdd.setOnClickListener {
-            financesViewModel.onFabAddClick()
+            financesViewModel?.onFabAddClick()
         }
-        binding.appBar.setExpanded(!financesViewModel.collapsed)
+        binding.appBar.setExpanded(!financesViewModel?.collapsed!!)
         setupRecyclerViews()
         observeAccounts()
         observeOperations()
@@ -65,11 +69,11 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
                             binding.toolbarLayout
                         )
                     ) {
-                        financesViewModel.collapsed = true
+                        financesViewModel?.collapsed = true
                     } else {
                         clearAnimation()
                         animate().translationY(0F).duration = 200
-                        financesViewModel.collapsed = false
+                        financesViewModel?.collapsed = false
                     }
                 }
             }
@@ -77,17 +81,17 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
     }
 
     private fun observeOverallMoney() {
-        financesViewModel.overallMoney.observe(viewLifecycleOwner) {
+        financesViewModel?.overallMoney?.observe(viewLifecycleOwner) {
             binding.toolbarLayout.title = resources.getString(R.string.money,"",  it)
         }
     }
 
     private fun collectEvents() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            financesViewModel.event.collect {
+            financesViewModel?.event?.collect {
                 when (it) {
                     is FinancesViewModel.Event.NavigateToEditAccountScreen -> {
-                        val canBeDeleted= financesViewModel.accounts.value?.size!!>1
+                        val canBeDeleted= financesViewModel?.accounts?.value?.size!!>1
                         val action =
                             FinancesFragmentDirections.actionFinancesFragmentToAddEditAccountFragment(
                                 it.account,
@@ -106,7 +110,7 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
     }
 
     private fun observeOperations() {
-        financesViewModel.operations.observe(viewLifecycleOwner) {
+        financesViewModel?.operations?.observe(viewLifecycleOwner) {
             operationsAdapter.differ.submitList(it)
             if(it.isEmpty()){
                 binding.emptyRecyclerOperations.visibility=View.VISIBLE
@@ -117,8 +121,8 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
     }
 
     private fun observeAccounts() {
-        financesViewModel.accounts.observe(viewLifecycleOwner) {
-            val accId=financesViewModel.accountId.value
+        financesViewModel?.accounts?.observe(viewLifecycleOwner) {
+            val accId=financesViewModel?.accountId?.value
             if(accId!=-1 && accId!=null) {
                 it[accId-1].selected=true
                 accountsAdapter.notifyItemChanged(accId-1)
@@ -153,7 +157,7 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
                 super.onScrolled(recyclerView, dx, dy)
                 if (layoutManager.findLastVisibleItemPosition() == operationsAdapter.differ.currentList.size - 1 &&
                     recyclerView.scrollState != RecyclerView.SCROLL_STATE_DRAGGING &&
-                    financesViewModel.collapsed
+                    financesViewModel?.collapsed == true
                 ) {
                     (activity as MainActivity).binding.bottomNavigationView.apply {
                         clearAnimation()
@@ -171,7 +175,7 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (layoutManager.findLastVisibleItemPosition() == operationsAdapter.differ.currentList.size - 1 &&
                     newState != RecyclerView.SCROLL_STATE_DRAGGING &&
-                    financesViewModel.collapsed
+                    financesViewModel?.collapsed == true
                 ) {
                     (activity as MainActivity).binding.bottomNavigationView.apply {
                         clearAnimation()
@@ -188,14 +192,14 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
             if (differ.currentList[position].selected) {
                 differ.currentList[position].selected = false
                 notifyItemChanged(position)
-                financesViewModel.setAccountId(-1)
+                financesViewModel?.setAccountId(-1)
             } else {
                 lastSelected =
                     differ.currentList.indexOf(differ.currentList.find { it.selected }?.apply {
                         selected = false
                     })
                 differ.currentList[position].selected = true
-                financesViewModel.setAccountId(differ.currentList[position].accId)
+                financesViewModel?.setAccountId(differ.currentList[position].accId)
             }
             notifyItemChanged(position)
             if (lastSelected != -1) notifyItemChanged(lastSelected)
@@ -203,6 +207,6 @@ class FinancesFragment : Fragment(), AccountsAdapter.OnAccountClickListener {
     }
 
     override fun onAccountItemLongClick(account: Account) {
-        financesViewModel.onAccountLongClick(account)
+        financesViewModel?.onAccountLongClick(account)
     }
 }

@@ -42,12 +42,14 @@ class AccountsAdapter(
             binding.apply {
                 accName.text = item.accName
                 accMoney.text = c.resources.getString(R.string.money,"", item.money)
-                accImage.setImageDrawable(
-                    AppCompatResources.getDrawable(
-                        c,
-                        c.resources.getIdentifier(item.icon, "drawable", c.packageName)
+                if(item.icon!="") {
+                    accImage.setImageDrawable(
+                        AppCompatResources.getDrawable(
+                            c,
+                            c.resources.getIdentifier(item.icon, "drawable", c.packageName)
+                        )
                     )
-                )
+                }
             }
         }
 

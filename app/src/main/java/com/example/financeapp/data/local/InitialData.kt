@@ -10,7 +10,7 @@ object InitialData {
     val accounts = listOf(
         Account(
             accName = "Наличные",
-            money=0.0,
+            money=0.0
         )
     )
 

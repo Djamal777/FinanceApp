@@ -1,5 +1,6 @@
 package com.example.financeapp.presentation.fragments.expenses_and_income_fragments.expenses_fragment
 
+import android.content.ContentValues.TAG
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -139,7 +140,7 @@ class ExpensesFragment : Fragment(), CategoriesAdapter.OnCategoryClickListener {
                         MonthPickerDialog.Builder(
                             requireContext(),
                             { selectedMonth, selectedYear ->
-                                expensesViewModel.setMonthAndYear(selectedMonth + 1, selectedYear)
+                                expensesViewModel.setMonthAndYear(selectedMonth+1, selectedYear)
                                 val calendar = Calendar.getInstance()
                                 calendar.set(Calendar.YEAR, selectedYear)
                                 calendar.set(Calendar.MONTH, selectedMonth)
@@ -151,10 +152,10 @@ class ExpensesFragment : Fragment(), CategoriesAdapter.OnCategoryClickListener {
                                     )
                                 } " + calendar.get(Calendar.YEAR)
                                 binding.date.text = curDate
-                            }, expensesViewModel.year.value!!, expensesViewModel.month.value!!
+                            }, expensesViewModel.year.value!!, expensesViewModel.month.value!!-1
                         ).setMinYear(2010)
                             .setActivatedYear(expensesViewModel.year.value!!)
-                            .setActivatedMonth(expensesViewModel.month.value!! - 1)
+                            .setActivatedMonth(expensesViewModel.month.value!!-1)
                             .setMaxYear(2030)
                             .setMinMonth(Calendar.JANUARY)
                             .setTitle("Выберите месяц и год")

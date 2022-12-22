@@ -168,7 +168,7 @@ class IncomeFragment : Fragment(), CategoriesAdapter.OnCategoryClickListener {
                                     )
                                 } " + calendar.get(Calendar.YEAR)
                                 binding.date.text = curDate
-                            }, incomeViewModel.year.value!!, incomeViewModel.month.value!!
+                            }, incomeViewModel.year.value!!, incomeViewModel.month.value!!-1
                         ).setMinYear(2010)
                             .setActivatedYear(incomeViewModel.year.value!!)
                             .setActivatedMonth(incomeViewModel.month.value!! - 1)
